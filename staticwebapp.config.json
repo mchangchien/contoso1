@@ -1,4 +1,15 @@
 {
+    "auth": {
+        "identityProviders": {
+          "azureActiveDirectory": {
+            "registration": {
+              "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>/v2.0",
+              "clientIdSettingName": "AZURE_CLIENT_ID",
+              "clientSecretSettingName": "AZURE_CLIENT_SECRET_CONTOSO1"
+            }
+          }
+        }
+      },
     "routes": [
         {
           "route": "/*",
@@ -8,7 +19,7 @@
       "responseOverrides": {
         "401": {
           "statusCode": 302,
-          "redirect": "/.auth/login/"
+          "redirect": "/.auth/login/aad"
         }
       },
     "navigationFallback": {
