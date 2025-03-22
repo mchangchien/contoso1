@@ -1,18 +1,16 @@
 {
-    {
-        "routes": [
-          {
-            "route": "/*",
-            "allowedRoles": ["weirduser"]
-          }
-        ],
-        "responseOverrides": {
-          "401": {
-            "statusCode": 302,
-            "redirect": "/.auth/login/aad"
-          }
+    "routes": [
+        {
+          "route": "/*",
+          "allowedRoles": ["authenticated"]
         }
-      }
+      ],
+      "responseOverrides": {
+        "401": {
+          "statusCode": 302,
+          "redirect": "/.auth/login/aad"
+        }
+      },
     "navigationFallback": {
         "rewrite": "/index.html"
     }
